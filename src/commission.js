@@ -16,7 +16,8 @@ class Commission {
     this.weekLimit = weekLimit;
   }
 
-  static getCommission(type, user_type) {
+  /** Get cash in/out object  */
+  static getCommission = (type, user_type) => {
     if (type === CONST.TYPE.CASH_IN) {
       return Commission.getCashInCommission();
     } else if (type === CONST.TYPE.CASH_OUT) {
@@ -28,9 +29,10 @@ class Commission {
     }
 
     throw "invalid type or user_type " + type + user_type;
-  }
+  };
 
-  static getCashInCommission() {
+  /** Get cash in object  */
+  static getCashInCommission = () => {
     return new Commission(
       CONST.TYPE.CASH_IN,
       CONST.CASH_IN_PERCENT,
@@ -38,9 +40,10 @@ class Commission {
       null,
       null
     );
-  }
+  };
 
-  static getCashOutLegalCommission() {
+  /** Get cash out legal object  */
+  static getCashOutLegalCommission = () => {
     return new Commission(
       CONST.TYPE.CASH_IN,
       CONST.CASH_OUT_PERCENT,
@@ -48,9 +51,10 @@ class Commission {
       new Limit(CONST.LEGAL_CASH_OUT_MIN_LIMIT),
       null
     );
-  }
+  };
 
-  static getCashOutNaturalCommission() {
+  /** Get cash out natural object  */
+  static getCashOutNaturalCommission = () => {
     return new Commission(
       CONST.TYPE.CASH_OUT,
       CONST.CASH_OUT_PERCENT,
@@ -58,7 +62,7 @@ class Commission {
       null,
       new Limit(CONST.NATURAL_CASH_OUT_WEEK_LIMIT)
     );
-  }
+  };
 }
 
 module.exports = Commission;

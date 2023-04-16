@@ -1,3 +1,4 @@
+/** Create an operation class  */
 class Operation {
   constructor({ date, user_id, user_type, type, operation }) {
     this.date = date;
